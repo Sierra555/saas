@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import AppShell from "../components/AppShell";
+import { ClerkProvider } from "@clerk/nextjs";
+import { ToastContainer } from "react-toastify";
 
-const bricolage = Bricolage_Grotesque({
-	variable: "--font-bricolage",
+const plusJakarta = Plus_Jakarta_Sans({
+	variable: "--font-plus-jakarta",
 	subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-	title: "Speakly",
-	description: "Real-time Ai Studying Platform",
+	title: "Learnify",
+	description: "Real-time AI studying platform",
 };
 
 export default function RootLayout({
@@ -19,8 +22,17 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${bricolage.variable} antialiased`}>
-				{children}
+			<body
+				className={`${plusJakarta.variable} antialiased`}
+			>
+				<ClerkProvider
+					appearance={{
+						variables: { colorPrimary: "#7B6CFF" },
+					}}
+				>
+					<ToastContainer />
+					<AppShell>{children}</AppShell>
+				</ClerkProvider>
 			</body>
 		</html>
 	);

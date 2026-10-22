@@ -9,6 +9,7 @@ import {
 	useUser,
 } from "@clerk/nextjs";
 import SearchInput from "./SearchInput";
+import { Suspense } from "react";
 
 type TopBarProps = {
 	onMenu: () => void;
@@ -28,12 +29,15 @@ const TopBar = ({ onMenu }: TopBarProps) => {
 				<Menu className="size-5" />
 			</button>
 
-			<div className="mx-auto w-full max-w-xl">
-				<SearchInput
-					placeholder="Search courses, topics, or skills..."
-					basePath="/learnings"
-				/>
-			</div>
+			<Suspense fallback={<div className="h-11" />}>
+				<div className="mx-auto w-full max-w-xl">
+					<SearchInput
+						placeholder="Search courses, topics, or skills..."
+						basePath="/learnings"
+					/>
+				</div>
+			</Suspense>
+
 
 			<div className="flex shrink-0 items-center gap-3">
 				<SignedOut>

@@ -13,7 +13,7 @@ export default withSentryConfig(nextConfig, {
 
 	org: "dara-stotska",
 
- project: "speakly",
+ project: "saas",
 
  // Only print logs for uploading source maps in CI
 	silent: !process.env.CI,

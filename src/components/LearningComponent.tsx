@@ -136,7 +136,7 @@ const LearningComponent = ({
 					<div
 						className="companion-avatar"
 						style={{
-							backgroundColor: getSubjectColor(subject),
+							backgroundColor: getSubjectColor(subject, "accent"),
 						}}
 					>
 						<div

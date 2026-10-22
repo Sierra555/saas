@@ -42,7 +42,7 @@ const LearningsLibrary = async ({
 					<LearningCard
 						key={learning.id}
 						{...learning}
-						color={getSubjectColor(learning.subject)}
+						color={getSubjectColor(learning.subject, "default") as string}
 					/>
 				))}
 			</section>

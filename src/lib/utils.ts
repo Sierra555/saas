@@ -8,10 +8,10 @@ export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
 
-export const getSubjectColor = (subject: string) => {
+export const getSubjectColor = (subject: string, type: "default" | "accent") => {
 	return subjectsColors[
 		subject as keyof typeof subjectsColors
-	];
+	][type];
 };
 
 export const configureAssistant = (

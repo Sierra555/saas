@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { cn } from "@/app/lib/utils";
+import { cn, getSubjectColor } from "@/app/lib/utils";
 import { CourseItem } from "../lib/learning";
 import SubjectIcon from "./SubjectIcon";
 import ProgressBar from "./ProgressBar";
@@ -50,7 +50,9 @@ const LearningList = ({
 									<p className="truncate font-semibold text-ink">
 										{name}
 									</p>
-									<span className="subject-badge hidden shrink-0 sm:inline-flex">
+									<span className="subject-badge hidden shrink-0 sm:inline-flex" 			
+										style={{ backgroundColor: getSubjectColor(subject, "accent") }}
+									> 
 										{subject}
 									</span>
 								</div>

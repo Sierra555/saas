@@ -24,7 +24,7 @@ const LearningCard = ({
 		<article
 			className="companion-card"
 			style={{
-				backgroundColor: color || getSubjectColor(subject),
+				backgroundColor: color || getSubjectColor(subject, "default") as string,
 			}}
 		>
 			<div className="flex items-start justify-between">

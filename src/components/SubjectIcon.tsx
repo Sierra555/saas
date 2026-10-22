@@ -28,9 +28,9 @@ const SubjectIcon = ({
 				box,
 				className
 			)}
-			style={{ backgroundColor: getSubjectColor(subject) }}
+			style={{ backgroundColor: getSubjectColor(subject, "accent") }}
 		>
-			<Image
+			<Image	
 				src={`/icons/${subject}.svg`}
 				alt={subject}
 				width={icon}

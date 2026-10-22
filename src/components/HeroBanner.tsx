@@ -29,8 +29,8 @@ const HeroBanner = ({
 				<h1 className="text-[32px] leading-9">Keep going!</h1>
 				<p className="max-w-sm text-sm text-muted-foreground">
 					You&apos;re closer to your goals than you think.
-					Learn something new today.
 				</p>
+				<p className="max-w-sm text-sm text-muted-foreground">Learn something new today.</p>
 				<Link
 					href={continueHref}
 					className="btn-primary mt-2 w-fit"
@@ -39,7 +39,7 @@ const HeroBanner = ({
 					<ArrowRight className="size-4" />
 				</Link>
 			</div>
-			<div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[48%] md:block">
+			<div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[54%] md:block">
 				<Image
 					src="/images/hero-desk.png"
 					alt=""

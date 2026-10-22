@@ -10,17 +10,20 @@ import {
 } from "../lib/actions/learning.actions";
 import { getSubjectColor } from "../lib/utils";
 import { toCourseItem } from "../lib/learning";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
 	const user = await currentUser();
-	const learningsRaw =[{}];
-	const sessionRaw = user
-		? await getUserSessions(user.id, 20)
-		: [];
+	if (!user) redirect("/sign-in");
 
+	const [sessionRaw, learningsRaw] = await Promise.all([
+		getUserSessions(user.id, 20),
+		getAllLearnings({ limit: 10 }),
+	]);
 	const learnings = learningsRaw
 		.map(toCourseItem)
 		.filter((item) => item !== null);
+	
 	const startedIds = [
 		...new Set(
 			sessionRaw
@@ -61,8 +64,8 @@ export default async function Home() {
 								<LearningCard
 									key={data.id}
 									{...data}
-									color={getSubjectColor(data.subject)}
-								/>
+									color={getSubjectColor(data.subject, "default") as string}
+								/>	
 							))}
 						</div>
 					</section>

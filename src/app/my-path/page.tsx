@@ -7,6 +7,7 @@ import {
 	getUserSessions,
 } from "@/app/lib/actions/learning.actions";
 import { toCourseItem } from "@/app/lib/learning";
+import { consoleLoggingIntegration } from "@sentry/nextjs";
 
 const LearningPathPage = async () => {
 	const user = await currentUser();
@@ -20,6 +21,9 @@ const LearningPathPage = async () => {
 	const history = sessionRaw
 		.map(toCourseItem)
 		.filter((item) => item !== null);
+
+	console.log(history, sessionRaw, learningsRaw);
+		
 	const startedIds = new Set(history.map((item) => item.id));
 	const upNext = learningsRaw
 		.map(toCourseItem)

@@ -10,6 +10,7 @@ import {
 	X,
 } from "lucide-react";
 import { cn } from "@/app/lib/utils";
+import Image from "next/image";
 
 const navLinks = [
 	{ label: "Home", href: "/", icon: Home },
@@ -99,49 +100,21 @@ const AppSidebar = ({ open, onClose }: AppSidebarProps) => {
 					New lesson
 				</Link>
 
-				<div className="relative mt-auto overflow-hidden rounded-[24px] bg-[#ece7ff] p-5">
-					<p className="relative z-10 max-w-[8.5rem] text-sm font-semibold leading-5 text-ink">
+				<div className="relative mt-auto overflow-hidden rounded-[24px] bg-[#ece7ff] p-5 h-[200px]">
+					<p className="max-w-[8.5rem] text-sm font-semibold leading-5 text-ink">
 						Small steps create big progress
 					</p>
-					<span className="relative z-10 mt-3 block text-primary">
+					<span className="mt-3 block text-primary">
 						♥
 					</span>
-					<svg
-						viewBox="0 0 120 120"
-						className="absolute right-[-8px] bottom-[-6px] h-24 w-24"
-						aria-hidden
-					>
-						<ellipse
-							cx="78"
-							cy="42"
-							rx="14"
-							ry="28"
-							fill="#9bb0c9"
-							transform="rotate(28 78 42)"
-						/>
-						<ellipse
-							cx="58"
-							cy="58"
-							rx="13"
-							ry="26"
-							fill="#7f97b3"
-							transform="rotate(-18 58 58)"
-						/>
-						<ellipse
-							cx="86"
-							cy="72"
-							rx="12"
-							ry="24"
-							fill="#a9bdd4"
-							transform="rotate(12 86 72)"
-						/>
-						<path
-							d="M48 108 C58 80, 70 70, 86 48"
-							fill="none"
-							stroke="#7f97b3"
-							strokeWidth="2"
-						/>
-					</svg>
+					<div className="absolute top-[65px] left-1/2" aria-label="hidden">
+						<Image
+								src={"/icons/leafs.svg"}
+								alt="mic"
+								width={90}
+								height={127}
+							/>
+					</div>
 				</div>
 			</aside>
 		</>

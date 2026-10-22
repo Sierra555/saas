@@ -13,7 +13,7 @@ import { toCourseItem } from "../lib/learning";
 
 export default async function Home() {
 	const user = await currentUser();
-	const learningsRaw = await getAllLearnings({ limit: 10 });
+	const learningsRaw =[{}];
 	const sessionRaw = user
 		? await getUserSessions(user.id, 20)
 		: [];

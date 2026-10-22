@@ -235,7 +235,7 @@ const LearningComponent = ({
 			</section>
 
 			<section className="transcript">
-				<div className="transcript-message">
+				<div className="transcript-message no-scrollbar">
 					{messages.map((message, index) => {
 						if (message.role === "assistant") {
 							return (
